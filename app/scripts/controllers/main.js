@@ -36,4 +36,24 @@ angular.module('scottDemoApp')
     };
 
     console.log(baseFactory);
+
+    $scope.menuItemList = [
+      {
+        label: 1
+      },
+      {
+        label: 2,
+        child: [
+          {
+            label: 3
+          },
+          {
+            label: 4
+          }
+        ]
+      },
+      {
+        label: 5
+      }
+    ];
   });

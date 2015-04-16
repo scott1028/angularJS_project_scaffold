@@ -94,10 +94,18 @@ angular.module('scottDemoApp')
 
   // product, package, topup approve list control panel
   .directive('controlPanel', function() {
-      return {
-        replace: false,
-        restrict: 'E',
-        templateUrl: '/views/__directive__/controlpanel.html'
-      }
+    return {
+      replace: false,
+      restrict: 'E',
+      templateUrl: '/views/__directive__/controlpanel.html'
+    }
+  })
+  .directive('menuItem', function() {
+    return {
+      replace: false,
+      transclude: true,
+      restrict: 'E',
+      templateUrl: '/views/__directive__/menuitem.html'
+    }
   })
 ;

@@ -1,0 +1,8 @@
+<!-- Dynamical MenuItem -->
+<!-- ref: http://benfoster.io/blog/angularjs-recursive-templates -->
+
+<div>
+  {{item.label}}
+
+  <div style="margin-left: 10px;" ng-repeat="item in item.child" ng-include="'views/__directive__/menuitem.html'"></div>
+</div>
