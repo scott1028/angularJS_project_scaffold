@@ -25,9 +25,6 @@ angular.module('scottDemoApp')
       // invoke super
       $scope._error();
 
-      // delete super
-      delete $scope._error;
-
       baseFactory.list({}, function(data, status, header){
         console.log(data, status, header);
       }, function(data, status, header){
