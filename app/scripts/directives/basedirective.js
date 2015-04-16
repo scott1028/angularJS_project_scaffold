@@ -54,6 +54,35 @@ angular.module('scottDemoApp')
       };
     }
   ])
+  .directive('valueValidator', function($filter) {
+    return {
+      restrict: 'A',
+      require: 'ngModel',
+      link: function(scope, elm, attrs, ctrl) {
+        if (attrs.valueValidator) {
+          var reg = new RegExp(attrs.valueValidator);
+        } else {
+          var reg = /^[A-z0-9_\- ]*$/;
+        }
+
+        elm.blur(function(e) {
+          e.target.value = e.target.value.trim();
+          if (e.target.value.match(reg) != null) {
+
+          } else {
+            if (attrs.valueValidatorWording) {
+                alert(attrs.valueValidatorWording);
+            } else if (attrs.valueValidator) {
+                alert('You only can input: "' + attrs.valueValidator + '"');
+            } else {
+                alert('You only can input: "A-z, 0-9 or -, _"');
+            }
+            elm.focus();
+          }
+        });
+      }
+    }
+  })
   .directive('baseControlPanel', function() {
     return {
       replace: true,
